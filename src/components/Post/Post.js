@@ -4,9 +4,7 @@ import ReplyIcon from 'react-icons/lib/md/chat-bubble-outline';
 import FavoriteIcon from 'react-icons/lib/md/favorite-outline';
 import MessageIcon from 'react-icons/lib/md/mail-outline';
 import MasterControlIcon from 'react-icons/lib/md/more-vert';
-
 import './Post.css';
-
 import Edit from './Edit/Edit';
 
 //////////////////////////////////////////////////////// THIS COMPONENT IS BEING RENDERED IN THE *APP* COMPONENT
@@ -96,8 +94,10 @@ export default class Post extends Component {
             // This has been pulled off of this.state via destructuring
             editing
             ?
-              <Edit text=""
-                    hideEdit={ this.hideEdit } />
+              <Edit text={ text }
+                    id={ this.props.id }
+                    hideEdit={ this.hideEdit } 
+                    updatePostFn={ this.props.updatePostFn } />
             :
           <span className="Post__text">{ text }</span>
           }
