@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import axios from 'axios'
-import './App.css';
+
+import './App.css'
+
+import Header from './Header/Header'
+import Compose from './Compose/Compose'
 import Post from './Post/Post'
-import Header from './Header/Header';
-import Compose from './Compose/Compose';
 
 class App extends Component {
   constructor() {
-    super();
+    super()
 
     this.state = {
       posts: []
-    };
+    }
 
     this.updatePost = this.updatePost.bind( this );
     this.deletePost = this.deletePost.bind( this );
@@ -20,11 +22,9 @@ class App extends Component {
   
   componentDidMount() {
     axios.get('https://practiceapi.devmountain.com/api/posts')
-    .then(res => {
+    .then(results => {
       // console.log(res.data)
-      this.setState({
-        posts: res.data,
-      })
+      this.setState({ posts: results.data })
     })
   }
 
