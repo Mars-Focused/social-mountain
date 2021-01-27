@@ -62,7 +62,6 @@ class App extends Component {
 
         <section className="App__content">
           <Compose createPostFn={this.createPost} />
-
           {posts.map((post) => (
             <Post
               key={post.id}
